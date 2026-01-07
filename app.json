@@ -9,14 +9,24 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": false,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vvt.linkshot"
     },
     "android": {
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.vvt.linkshot"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router", "expo-web-browser"]
+    "plugins": [
+      "expo-router",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.622990597633-8r2qreb64fmnj2dpk71ekockbdbaqvuh"
+        }
+      ]
+    ]
   }
 }
