@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "genTypes": "node -e \"require('dotenv').config({ path: '.env.local' }); const { execSync } = require('child_process'); const ref = process.env.SUPABASE_PROJECT_ID; if (!ref) { console.error('Missing SUPABASE_PROJECT_ID'); process.exit(1); } const cmd = 'supabase gen types typescript --project-id ' + ref + ' --schema public > src/types/supabase.ts'; execSync(cmd, { stdio: 'inherit', shell: true });\""
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.5",
@@ -21,6 +22,7 @@
     "expo-router": "~5.1.10",
     "expo-status-bar": "~2.2.3",
     "expo-web-browser": "~14.2.0",
+    "lucide-react-native": "^0.562.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-icons": "^5.5.0",
@@ -30,6 +32,7 @@
     "react-native-screens": "~4.11.1",
     "react-native-url-polyfill": "^3.0.0",
     "react-native-web": "^0.20.0",
+    "supabase": "^2.72.3",
     "typescript": "~5.8.3",
     "zustand": "^5.0.9"
   },
