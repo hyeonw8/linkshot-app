@@ -4,6 +4,7 @@
     "slug": "linkshot-app",
     "scheme": "linkshot-app",
     "version": "1.0.0",
+    "icon": "./src/assets/icon.png",
     "entryPoint": "./node_modules/expo-router/entry",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
