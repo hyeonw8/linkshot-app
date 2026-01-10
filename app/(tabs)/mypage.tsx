@@ -1,6 +1,7 @@
 import { useAuthStore } from "@/store/authStore";
 import { View, Text, Pressable, Alert } from "react-native";
 import { router } from "expo-router";
+import { MyPageGuestView } from "@/features/mypage/MyPageGuestView";
 
 export default function MyPage() {
   const { user, initialized, signOut, isLoading } = useAuthStore();
@@ -8,16 +9,7 @@ export default function MyPage() {
   if (!initialized) return null;
 
   if (!user) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 16, marginBottom: 12 }}>
-          로그인이 필요합니다
-        </Text>
-        <Pressable onPress={() => router.push("/auth/signin")}>
-          <Text style={{ color: "#2563EB" }}>로그인 하러 가기</Text>
-        </Pressable>
-      </View>
-    );
+    return <MyPageGuestView />;
   }
 
   const onLogout = () => {
