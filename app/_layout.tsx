@@ -1,4 +1,5 @@
 import AuthInitializer from "@/features/auth/AuthInitializer";
+import QueryProvider from "@/providers/QueryProvider";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { Stack } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
@@ -14,15 +15,16 @@ export default function RootLayout() {
     });
   }, []);
 
-
   return (
     <>
-      <AuthInitializer />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <QueryProvider>
+        <AuthInitializer />
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </QueryProvider>
     </>
   );
 }
